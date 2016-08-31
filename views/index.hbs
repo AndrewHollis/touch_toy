@@ -1,0 +1,156 @@
+<div id="parents" class="row">
+    <div class="col-sm-6">
+        <canvas nx="button" id="mother" width="341" height="344"></canvas>
+    </div>
+    <div class="col-sm-6">
+        <canvas nx="button" id="father" width="288" height="351"></canvas>
+    </div>
+</div>
+
+<div id="grandparents" class="row">
+    <div class="col-sm-3">
+        <canvas nx="button" id="grandmother" width="221" height="392"></canvas>
+    </div>
+    <div class="col-sm-3">
+        <canvas nx="button" id="grandfather" width="173" height="308"></canvas>
+    </div>
+    <div class="col-sm-3">
+        <canvas nx="button" id="grandmother2" width="260" height="297"></canvas>
+    </div>
+
+</div>
+
+<div id="unclesAunts" class="row">
+    <div class="col-sm-4">
+        <canvas nx="button" id="uncleAllan" width="261" height="330"></canvas>
+    </div>
+    <div class="col-sm-4">
+        <canvas nx="button" id="uncleCraig" width="211" height="265"></canvas>
+    </div>
+    <div class="col-sm-4">
+        <canvas nx="button" id="auntieDawn" width="296" height="310"></canvas>
+    </div>
+</div>
+
+<div id="cousins" class="row">
+    <div class="col-sm-4">
+        <canvas nx="button" id="isabella" width="340" height="412"></canvas>
+    </div>
+    <div class="col-sm-4">
+        <canvas nx="button" id="marcus" width="238" height="372"></canvas>
+    </div>
+    <div class="col-sm-4">
+        <canvas nx="button" id="marley" width="295" height="300"></canvas>
+    </div>
+</div>
+
+<script>
+    var motherSound = new Tone.Player("./sounds/mor.mp3").toMaster();
+    var fatherSound = new Tone.Player("./sounds/far.mp3").toMaster();
+    var grandmotherSound = new Tone.Player("./sounds/mormor.mp3").toMaster();
+    var grandfatherSound = new Tone.Player("./sounds/morfar.mp3").toMaster();
+    var grandmother2Sound = new Tone.Player("./sounds/farmor.mp3").toMaster();
+    var grandfather2Sound = new Tone.Player("./sounds/farfar.mp3").toMaster();
+    var allanSound = new Tone.Player("./sounds/uncleAllan.mp3").toMaster();
+    var craigSound = new Tone.Player("./sounds/uncleCraig.mp3").toMaster();
+    var dawnSound = new Tone.Player("./sounds/auntieDawn.mp3").toMaster();
+    var isabellaSound = new Tone.Player("./sounds/isabella.mp3").toMaster();
+    var marcusSound = new Tone.Player("./sounds/marcus.mp3").toMaster();
+    var marleySound = new Tone.Player("./sounds/marley.mp3").toMaster();
+
+
+
+    nx.onload = function() {
+
+        mother.setImage("./images/mother.png");
+        father.setImage("./images/father.png");
+        grandmother.setImage("./images/mormor.png");
+        grandfather.setImage("./images/morfar.png");
+        grandmother2.setImage("./images/farmor.png");
+       // grandfather2.setImage("./images/farfar.png");
+        uncleAllan.setImage("./images/uncleAllan.png");
+        uncleCraig.setImage("./images/uncleCraig.png");
+        auntieDawn.setImage("./images/auntieDawn.png");
+        isabella.setImage("./images/isabella.png");
+        marcus.setImage("./images/marcus.png");
+        marley.setImage("./images/marley.png");
+
+        mother.on('*', function (data) {
+            if(data.press == 1) {
+                motherSound.start();
+            }
+        });
+
+        father.on('*', function (data) {
+            if(data.press == 1) {
+                fatherSound.start();
+            }
+        });
+
+        grandmother.on('*', function (data) {
+            if(data.press == 1) {
+                grandmotherSound.start();
+            }
+        });
+
+        grandfather.on('*', function (data) {
+            if(data.press == 1) {
+                grandfatherSound.start();
+            }
+        });
+
+        grandmother2.on('*', function (data) {
+            if(data.press == 1) {
+                grandmother2Sound.start();
+            }
+        });
+
+        uncleAllan.on('*', function (data) {
+            if(data.press == 1) {
+                allanSound.start();
+            }
+        });
+
+        uncleCraig.on('*', function (data) {
+            if(data.press == 1) {
+                craigSound.start();
+            }
+        });
+
+        auntieDawn.on('*', function (data) {
+            if(data.press == 1) {
+                dawnSound.start();
+            }
+        });
+
+        isabella.on('*', function (data) {
+            if(data.press == 1) {
+                isabellaSound.start();
+            }
+        });
+
+        marcus.on('*', function (data) {
+            if(data.press == 1) {
+                marcusSound.start();
+            }
+        });
+
+        marley.on('*', function (data) {
+            if(data.press == 1) {
+                marleySound.start();
+            }
+        });
+
+        /* this code can be useful for logging any interface events */
+        for (var key in nx.widgets) {
+            with (nx.widgets[key]) {
+                on('*', function(data) {
+                    // code that will be executed
+                    console.log(canvasID, data)
+                })
+            }
+        }
+
+    };
+
+</script>
